@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Alien Attack</title>
+	<meta name="description" content="Alien Attack">
+  <!-- 80sish google font -->
+  <link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="custom.css">
+	
+</head>
+<body>
+	 <!-- Navbar -->
+  	<nav class="navbar navbar-inverse navbar-fixed-top" id="my-navbar">
+  		<div class="container">
+  			<div class="navbar-header">
+  				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+  					<span class="icon-bar"></span>
+  					<span class="icon-bar"></span>
+  					<span class="icon-bar"></span>
+  					<span class="icon-bar"></span>
+  				</button>
+
+  				<a href="" class="navbar-brand" style ="color: #eb9316;">James Bertram </a>
+  			</div><!-- Navbar Header-->
+  			<div class="collapse navbar-collapse" id="navbar-collapse">
+  				
+  			<a href="" class="btn btn-warning navbar-btn navbar-right">Download Now</a>
+  				<ul class="nav navbar-nav">
+  					<li><a href="#feedback">x</a> 
+  					<li><a href="#gallery">x</a> 
+  					<li><a href="#features">x</a> 
+  					<li><a href="#faq">x</a> 
+  					<li><a href="#contact">x</a> 
+  				</ul>
+  			</div>
+  		</div><!-- End Container-->
+  	</nav><!-- End navbar -->
+  <div id = "container" style = "padding: 30px;">
+  <section id = "game">
+    <div class="page-header" style = "border:none;">
+    <h1>ALIEN ATTACK</h1>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <div id = "game-wrapper">
+          <div id = "stage">
+            <div id = "background"></div>
+            <div id = "cannon"></div>
+            <div id = "missile"></div>
+            <div id = "alien"></div>
+            <div id = "explosion"></div>
+          </div>
+          <div id = "gameStatus" style = "width: 300px; color: #FF9C25"></div>
+            <p id = "output">Enter X & Y position (0-300), then click fire.<br></p>
+            <input id = "inputX" class = "style-1" style = "margin-bottom: 10px;" type="text" placeholder = "X..." autofocus>
+            <input id = "inputY" class = "style-1" style = "margin-bottom: 10px;" type="text" placeholder = "Y..."><br>
+            <button id = "fire" class = "btn btn-danger" style = "width: 50%;">fire!</button>
+        </div>
+      </div> 
+    </div>
+  </section>
+    <!-- js -->
+  <script src="alien.js"></script>
+	</div>
+	
+</body>
+
+</html>
