@@ -12,7 +12,25 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" type="text/css" href="custom.css">
-	
+	<style>
+    .thumbnail{
+      background-color: #000000;
+    }
+    .game-thumb{
+      border-top-left-radius:5px 5px;
+      border-top-right-radius:5px 5px;
+  }
+    .btn {
+      border-radius:0;
+      font-size: 15px;
+      font-weight: bold;
+    }
+    .glyph-rocket{
+      background-image: url(icons/rocket.png);
+      width:100%;
+      height:auto;
+    }
+  </style>
 </head>
 <body>
 	 <!-- Navbar -->
@@ -28,17 +46,9 @@
 
   				<a href="" class="navbar-brand" style ="color: #eb9316;">James Bertram </a>
   			</div><!-- Navbar Header-->
-  			<div class="collapse navbar-collapse" id="navbar-collapse">
-  				
-  			<a href="" class="btn btn-warning navbar-btn navbar-right">Download Now</a>
-  				<ul class="nav navbar-nav">
-  					<li><a href="#feedback">x</a> 
-  					<li><a href="#gallery">x</a> 
-  					<li><a href="#features">x</a> 
-  					<li><a href="#faq">x</a> 
-  					<li><a href="#contact">x</a> 
-  				</ul>
-  			</div>
+  			<div title = "jamesjeremyb@gmail.com" class="collapse navbar-collapse" id="navbar-collapse">
+        <a href="mailto:jamesjeremyb@gmail.com" class="btn btn-warning navbar-btn navbar-right">Contact Me</a>
+         
   		</div><!-- End Container-->
   	</nav><!-- End navbar -->
   <div id = "container" style = "padding: 30px;">
