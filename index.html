@@ -4,14 +4,15 @@
 <head>
 	<meta charset="utf-8">
 	<title>JJBertram - JS Games</title>
-	<meta name="description" content="Alien Attack">
-  <!-- 80sish google font -->
-  <link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
+	<meta name="description" content="JJBertram - Home">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 	<style>
+    body{
+      padding-top: 40px;
+    }
     .thumbnail{
       background-color: #000000;
     }
@@ -26,7 +27,7 @@
     }
   </style>
 </head>
-<body>
+<body data-spy="scroll" data-target="#my-navbar">
 	 <!-- Navbar -->
   	<nav class="navbar navbar-inverse navbar-fixed-top" id="my-navbar">
   		<div class="container">
@@ -39,11 +40,12 @@
   				</button>
 
   				<a href="http://jjbertram.github.io/game-design/" class="navbar-brand" style ="color: #eb9316;">James Bertram </a>
-  			</div><!-- Navbar Header-->
+  			</div>
+        <!-- Navbar Header-->
   			<div title = "jamesjeremyb@gmail.com" class="collapse navbar-collapse" id="navbar-collapse">
   			<a href="mailto:jamesjeremyb@gmail.com" class="btn btn-warning navbar-btn navbar-right">Contact Me</a>
   				<ul class="nav navbar-nav">
-  					<li><a href="http://jjbertram.github.io/game-design/1-Alien-Attack/index.html" target="_blank">Alien Attack</a> 
+  					<li><a href="http://jjbertram.github.io/game-design/1-Alien-Attack/index.html" target="_blank">Alien Attack</a>
   					<li><a href="#gallery">x</a> 
   					<li><a href="#features">x</a> 
   					<li><a href="#faq">x</a> 
@@ -60,36 +62,37 @@
       </div><!-- End container -->
     </div><!-- End jumbotron-->
     <!-- JS programs i've made -->
-    <div class="row">
-          <div class="col-sm-4">
-            <div class="panel panel-default text-center">
-              <div class="panel-body">
-                <span class="glyphicon glyphicon-ok"></span>
-                <h4>Alien Attack!</h4>
-                <p>This is the most basic example of a javascript game. Just a number guessing game, with some collision detection, simple logic, css altering with DOM. I've styled it up a bit with some bootstrap and html5.</p>
-                <div class="thumbnail">
-                  <img class = "game-thumb" src="src/images/alien-attack-ss.png" alt="My alien attack game">
-              </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-4">
-            <div class="panel panel-default text-center">
-              <div class="panel-body">
-                <span class="glyphicon glyphicon-star"></span>
-                <h4>This is the Heading</h4>
-                <p>Nam velit est, tempor vel posuere et, auctor a lectus. Aenean gravida, est accumsan dictum rhoncus, lectus mi suscipit lacus, suscipit accumsan augue tellus vitae dolor. Morbi in euismod dui</p>
+    <div class="container">
+      <div class="row">
+            <div class="col-sm-4">
+              <div class="panel panel-default text-center">
+                <div class="panel-body">
+                  <span class="glyphicon glyphicon-ok"></span>
+                  <h4>Alien Attack!</h4>
+                  <p>This is the most basic example of a javascript game. Just a number guessing game, with some collision detection, simple logic, css altering with DOM. I've styled it up a bit with some bootstrap and html5.</p>
+                  <div class="thumbnail">
+                    <img class = "game-thumb" src="src/images/alien-attack-ss.png" alt="My alien attack game">
+                </div>
+                </div>
               </div>
             </div>
-          </div>
+            <div class="col-sm-4">
+              <div class="panel panel-default text-center">
+                <div class="panel-body">
+                  <span class="glyphicon glyphicon-star"></span>
+                  <h4>This is the Heading</h4>
+                  <p>Nam velit est, tempor vel posuere et, auctor a lectus. Aenean gravida, est accumsan dictum rhoncus, lectus mi suscipit lacus, suscipit accumsan augue tellus vitae dolor. Morbi in euismod dui</p>
+                </div>
+              </div>
+            </div>
 
-          <div class="col-sm-4">
-            <div class="panel panel-default text-center">
-              <div class="panel-body">
-                <span class="glyphicon glyphicon-play-circle"></span>
-                <h4>This is the Heading</h4>
-                <p>Nam velit est, tempor vel posuere et, auctor a lectus. Aenean gravida, est accumsan dictum rhoncus, lectus mi suscipit lacus, suscipit accumsan augue tellus vitae dolor. Morbi in euismod dui</p>
+            <div class="col-sm-4">
+              <div class="panel panel-default text-center">
+                <div class="panel-body">
+                  <span class="glyphicon glyphicon-play-circle"></span>
+                  <h4>This is the Heading</h4>
+                  <p>Nam velit est, tempor vel posuere et, auctor a lectus. Aenean gravida, est accumsan dictum rhoncus, lectus mi suscipit lacus, suscipit accumsan augue tellus vitae dolor. Morbi in euismod dui</p>
+                </div>
               </div>
             </div>
           </div>

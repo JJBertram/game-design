@@ -13,12 +13,6 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" type="text/css" href="custom.css">
 	<style>
-    @media screen 
-  and (device-width: 320px) 
-  and (device-height: 640px) 
-  and (-webkit-device-pixel-ratio: 2) {
-
-}
     .thumbnail{
       background-color: #000000;
     }
@@ -31,14 +25,9 @@
       font-size: 15px;
       font-weight: bold;
     }
-    .glyph-rocket{
-      background-image: url(icons/rocket.png);
-      width:100%;
-      height:auto;
-    }
   </style>
 </head>
-<body>
+<body data-spy="scroll" data-target="#my-navbar">
 	 <!-- Navbar -->
   	<nav class="navbar navbar-inverse navbar-fixed-top" id="my-navbar">
   		<div class="container">
@@ -53,13 +42,7 @@
   			</div><!-- Navbar Header-->
   			<div title = "jamesjeremyb@gmail.com" class="collapse navbar-collapse" id="navbar-collapse">
         <a href="mailto:jamesjeremyb@gmail.com" class="btn btn-warning navbar-btn navbar-right">Contact Me</a>
-          <ul class="nav navbar-nav">
-            <li><a href="#feedback">x</a> 
-            <li><a href="#gallery">x</a> 
-            <li><a href="#features">x</a> 
-            <li><a href="#faq">x</a> 
-            <li><a href="#contact">x</a> 
-          </ul>
+         
   		</div><!-- End Container-->
   	</nav><!-- End navbar -->
   <div id = "container" style = "padding: 30px;">
