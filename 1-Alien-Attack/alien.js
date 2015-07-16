@@ -7,7 +7,9 @@
 	var guessY = 0;
 	var shotsAvail = 8;
 	var shotsFired = 0;
-	var gameState = "Shots Fired: " + shotsFired + " Shots Remaining: " + shotsAvail;
+	var gameState = "Shots Fired: <span style = 'color:#00FFFF;'>" + 
+	shotsFired + "</span> Shots Remaining: <span style = 'color:#00FFFF;'>" +
+	shotsAvail + "</span>";
 	var gameWon = false;
 	//game status
 	var gameStatus = document.querySelector("#gameStatus");
@@ -77,7 +79,9 @@
 		shotsAvail--;
 		shotsFired++;
 		output.innerHTML = "Enter X & Y position (0-300), then click fire.<br>";
-		gameState = "Shots Fired: " + shotsFired + " Shots Remaining: " + shotsAvail;
+		var gameState = "Shots Fired: <span style = 'color:#00FFFF;'>" + 
+		shotsFired + "</span> Shots Remaining: <span style = 'color:#00FFFF;'>" +
+		shotsAvail + "</span>";
 		gameStatus.innerHTML = gameState;
 		if(guessX >= alienX &&  guessX <= alienX+20){
 			//hit x axis, check Y axis
@@ -88,7 +92,7 @@
 			}
 		}
 		else {
-			output.innerHTML += shotsFired + ": <strong>MISS! <strong>";
+			output.innerHTML += shotsFired + " <strong>MISS!</strong>";
 			if(shotsAvail < 1){
 				endGame();
 			}
@@ -108,7 +112,7 @@
 		}
 		else {
 			gameStatus.innerHTML = "<h3> The Earth has been DESTROYED!</h3>";
-			output.innerHTML = "<3> YOU LOSE!</h3>";
+			output.innerHTML = "<h3> YOU LOSE!</h3>";
 		}
 		//Disable the button
  		button.removeEventListener("click", clickHandler, false);
