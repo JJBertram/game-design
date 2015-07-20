@@ -14,6 +14,11 @@
       padding-top: 40px;
       text-align: center;
     }
+    @media screen (min-width: 320px){
+    .container {
+      width: 300px;
+      }
+    }
     .thumbnail{
       background-color: #000000;
     }
@@ -26,11 +31,19 @@
       font-size: 15px;
       font-weight: bold;
     }
-  @media screen (min-width: 320px){
-    .container {
-      width: 300px;
-    }
-  }
+    .numberCircle {
+    display: block;
+    height: 60px;
+    width: 60px;
+    line-height: 60px;
+    -moz-border-radius: 30px; /* or 50% */
+    border-radius: 30px; /* or 50% */
+    background-color: #333;
+    color: white;
+    text-align: center;
+    font-size: 2em;
+    margin: 0 auto;
+}
   </style>
 </head>
 <body data-spy="scroll" data-target="#my-navbar">
@@ -74,7 +87,7 @@
             <div class="col-sm-4">
               <div class="panel panel-default text-center">
                 <div class="panel-body">
-                  <span class="glyphicon glyphicon-ok"></span>
+                  <!-- <div class="numberCircle">1</div> -->
                   <h4>Alien Attack!</h4>
                   <p>This is the most basic example of a javascript game. Just a number guessing game, with some collision detection, simple logic, css altering with DOM. I've styled it up a bit with some bootstrap and html5.</p>
                   <div class="thumbnail">

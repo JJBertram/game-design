@@ -11,10 +11,13 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" type="text/css" href="custom.css">
+	<link rel="stylesheet" type="text/css" href="src/custom.css">
 	<style>
     .thumbnail{
       background-color: #000000;
+      background-image:url(src/images/field.jpg);
+      min-width:100%;
+      min-height:327px;
     }
     .game-thumb{
       border-top-left-radius:5px 5px;
@@ -24,6 +27,9 @@
       border-radius:0;
       font-size: 15px;
       font-weight: bold;
+    }
+    .greyBG{
+      background-color: #333;
     }
   </style>
 </head>
@@ -49,47 +55,35 @@
             <li><a href="#faq">x</a> 
             <li><a href="#contact">x</a> 
           </ul>
-  		</div><!-- End Container-->
+  		</div>
+    </div><!-- End Container-->
   	</nav><!-- End navbar -->
-  <div id = "container" style = "padding: 30px;">
+  <div class = "container text-center" style = "padding: 30px;">
     <section>
       <div class="page-header" id="features">
-          <h2>Key to the Kingdom</h2>
-        </div><!-- End Page Header -->
-
+          <h1>Key to the Kingdom</h1>
+      </div><!-- End Page Header -->
         <div class="row">
-         
-        <hr>
-
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="panel panel-default text-center">
-              <div class="panel-body">
-                <h4>Inventory</h4>
-                <p>Nam velit est, tempor vel posuere et, auctor a lectus. Aenean gravida, est accumsan dictum rhoncus, lectus mi suscipit lacus, suscipit accumsan augue tellus vitae dolor. Morbi in euismod dui</p>
+          <div class="col-sm-6 col-sm-offset-3">
+            <div class="panel panel-default greyBG">
+              <!-- game location output -->
+               <h3 id = "location" style = "color:white;"></h3>
+              <div class="panel-body greyBG">
+                <!-- location image -->
+                <img id = "imgDisplay" class = "img-responsive img-rounded" src = "src/images/young-forest.jpg"></div>
+              <div style = "padding: 10px;">
+                <!-- input field -->
+                <input id="input" class = "form-control" type="text" placeholder = "type your action here" style = "width:40%; margin:0 auto; display:inline-block; vertical-align:middle;"autofocus>
+                <!-- submit button -->
+                <button id = "enter" class = "btn btn-primary" style = "border-radius:4px;">enter</button>
               </div>
             </div>
           </div>
-
-          <div class="col-sm-4">
-            <div class="panel panel-default text-center">
-              <div class="panel-body">
-                <h4>Action</h4>
-                <p>Nam velit est, tempor vel posuere et, auctor a lectus. Aenean gravida, est accumsan dictum rhoncus, lectus mi suscipit lacus, suscipit accumsan augue tellus vitae dolor. Morbi in euismod dui</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-4">
-            <div class="panel panel-default text-center">
-              <div class="panel-body">
-                <h4>Location</h4>
-                <p>Nam velit est, tempor vel posuere et, auctor a lectus. Aenean gravida, est accumsan dictum rhoncus, lectus mi suscipit lacus, suscipit accumsan augue tellus vitae dolor. Morbi in euismod dui</p>
-              </div>
-            </div>
+          <!-- game messages -->
+          <div class="col-sm-6 col-sm-offset-3" style = "text-align: left;">
+            <h4 id = "output" style = "margin-top:-20px;"></h4>
           </div>
         </div><!-- end row -->
-
     </section>
   </div><!-- End Container -->
 
