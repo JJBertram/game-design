@@ -99,7 +99,7 @@ var gameMessage = "";
 var items = ["rope", "jar", "firefly", "shovel", "flute"];
 var itemLocation = [3, 6, 10, 20, 22];
 var backpack = [];
-var knownActions = ["north", "east", "south", "west", "take", "use", "drop"];
+var knownActions = ["north", "east", "south", "west", "take", "use", "drop", "help"];
 var knownItems = ["short sword", "wooden shield", "rope", "jar", "firefly", "long sword", "metal shield", "shovel", "flute", "key"];
 var actionTaken = "";
 var item = "";
@@ -410,8 +410,8 @@ function playGame(){
 			{
 				gameMessage = helpInfo[mapLocation] + " ";
 			}
-			gameMessage += "Try any of these words: ";
-			gameMessage += "north, east, south west";
+			gameMessage += "<br>Try any of these words: ";
+			gameMessage += "north, east, south, west ";
 			gameMessage += "take, use, drop";
 			break;
 		default:
@@ -425,7 +425,7 @@ function render()
 	//reset input field values and placeholder
 	output.innerHTML = "";
 	input.value = "";
-	input.placeholder = "type your action here";
+	input.placeholder = "enter direction, 'help' for more";
 	//displays location and image
 	location.innerHTML = map[mapLocation];
 	imgDisplay.src = "src/images/"+images[mapLocation]+".jpg";
