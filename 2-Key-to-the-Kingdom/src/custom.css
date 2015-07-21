@@ -16,18 +16,11 @@
 }
 body {
 	text-align: center;
+	font-family: 'Galdeano', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	background-image: url(images/parchment.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: #000;
 }
-/*input[type="text"] {
-	padding: 10px;
-	color: #000;
-	border: solid 3px #FF9C25; 
-	background-color: #19D119;
-	border-radius: 10px;
-	margin-bottom: 10px;
-	transition: box-shadow 0.3s, border 0.3s;
-}
-input[type="text"]:focus,
-input[type="text"].focus {
-  border: solid 3px #FF9C25;
-  box-shadow: 0 0 5px 1px yellow;
-}*/
+
