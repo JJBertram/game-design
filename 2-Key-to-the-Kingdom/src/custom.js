@@ -28,10 +28,6 @@ map[21] = "A tall fire tower";
 map[22] = "An ancient statue";
 map[23] = "A huge river";
 map[24] = "A knight clad in black armor";
-//items
-var items = ["short sword", "wooden shield", "rope", "jar", "firefly", "long sword", "metal shield", "shovel", "flute", "key"];
-var itemLocation = [0, 1, 3, 6, 10, 15, 17, 20, 22, 24 ];
-var backpack = [];
 //location images"
 var images = [];
 images[0] = "grave"; //short sword
@@ -67,11 +63,15 @@ var output = document.querySelector("#output");
 var input = document.querySelector("#input");
 var location = document.querySelector("#location");
 var button = document.querySelector("#enter");
-location.innerHTML = mapLocation + ": " + map[mapLocation];
+location.innerHTML = map[mapLocation];
 button.addEventListener("click", clickHandler, false);
 window.addEventListener("keydown", keydownHandler, false);
 var playerInput = "";
 var gameMessage = "";
+//items
+var items = ["rope", "jar", "firefly", "shovel", "flute"];
+var itemLocation = [3, 6, 10, 20, 22];
+var backpack = [];
 var knownActions = ["north", "east", "south", "west", "take", "use", "drop"];
 var knownItems = ["short sword", "wooden shield", "rope", "jar", "firefly", "long sword", "metal shield", "shovel", "flute", "key"];
 var actionTaken = "";
@@ -91,175 +91,21 @@ function takeItem()
 	var itemIndexNumber = items.indexOf(item);
 	if(itemIndexNumber !== -1 && itemLocation[itemIndexNumber] === mapLocation)
 	{
-		switch(item)
-		{
-			case "short sword":
-				for(var i = 0; i<backpack.length; i++)
-					{
-						if(backpack[i] == "shovel")
-						{
-							gameMessage = "<br>You use the shovel to take the <strong>" + item + "</strong>.";
-							backpack.push(item);
-							//remove item from game world
-							items.splice(itemIndexNumber, 1);
-							itemLocation.splice(itemIndexNumber, 1);
-							break;
-						}
-						else
-						{
-							gameMessage = "if only you had something to dig with...";
-						}
-					}
-			break;
-			case "wooden shield":
-				for(var i = 0; i<backpack.length; i++)
-					{
-						if(backpack[i] == "rope")
-						{
-							gameMessage = "<br>You use the rope to take the <strong>" + item + "</strong>.";
-							backpack.push(item);
-							//remove item from game world
-							items.splice(itemIndexNumber, 1);
-							itemLocation.splice(itemIndexNumber, 1);
-							break;
-						}
-						else
-						{
-							gameMessage = "a rope would make this easy..."
-						}
-					}
-			break;
-			case "rope":
-				gameMessage = "<br>You take the <strong>" + item + "</strong>.";
-				backpack.push(item);
-				//remove item from game world
-				items.splice(itemIndexNumber, 1);
-				itemLocation.splice(itemIndexNumber, 1);
-			break;
-			case "jar":
-				gameMessage = "<br>You take the <strong>" + item + "</strong>.";
-				backpack.push(item);
-				//remove item from game world
-				items.splice(itemIndexNumber, 1);
-				itemLocation.splice(itemIndexNumber, 1);
-			break;
-			case "firefly":
-				gameMessage = "<br>You take the <strong>" + item + "</strong>.";
-				backpack.push(item);
-				//remove item from game world
-				items.splice(itemIndexNumber, 1);
-				itemLocation.splice(itemIndexNumber, 1);
-			break;
-			case "long sword":
-				var jarFound = false;
-				var fireflyFound = false;
-				for(var i = 0; i<backpack.length; i++)
-					{
-						if(backpack[i] == "jar")
-						{
-							jarFound = true;
-						}
-						else if (backpack[i] == "firefly")
-						{
-							fireflyFound = true;
-						}
-					}
-					if(jarFound == true && fireflyFound == true)
-					{
-						gameMessage = "<br>You take the <strong>" + item + "</strong>.";
-						backpack.push(item);
-						//remove item from game world
-						items.splice(itemIndexNumber, 1);
-						itemLocation.splice(itemIndexNumber, 1);
-						break;
-					}
-					else
-					{
-						gameMessage = "Need something to light this cave..."
-					}
-			break;
-			case "metal shield":
-				if(backpack.length === 0){
-					gameMessage = "if I had a way to pacify the wolf...";
-					break;
-				}
-				else
-					{
-						for(var i = 0; i<backpack.length; i++)
-						{
-							if(backpack[i] == "flute")
-							{
-								gameMessage = "<br>You use the flute to take the <strong>" + item + "</strong> from the wolf.";
-								backpack.push(item);
-								//remove item from game world
-								items.splice(itemIndexNumber, 1);
-								itemLocation.splice(itemIndexNumber, 1);
-								break;
-							}
-							else
-							{
-								gameMessage = "if I had a way to pacify the wolf...";
-							}
-						}
-					}
-			break;
-			case "shovel":
-				gameMessage = "<br>You take the <strong>" + item + "</strong>.";
-				backpack.push(item);
-				//remove item from game world
-				items.splice(itemIndexNumber, 1);
-				itemLocation.splice(itemIndexNumber, 1);
-			break;
-			case "flute":
-				gameMessage = "<br>You take the <strong>" + item + "</strong>.";
-				backpack.push(item);
-				//remove item from game world
-				items.splice(itemIndexNumber, 1);
-				itemLocation.splice(itemIndexNumber, 1);
-			break;
-			case "jar":
-				gameMessage = "<br>You take the <strong>" + item + "</strong>.";
-				backpack.push(item);
-				//remove item from game world
-				items.splice(itemIndexNumber, 1);
-				itemLocation.splice(itemIndexNumber, 1);
-			break;
-			case "key":
-				var swordOn = false;
-				var shieldOn = false;
-				for(var i = 0; i<backpack.length; i++)
-					{
-						if(backpack[i] == "short sword" || backpack[i]=="long sword")
-						{
-							swordOn = true;
-						}
-						else if (backpack[i] == "wooden shield" || "metal shield")
-						{
-							shieldOn = true;
-						}
-					}
-					if(shieldOn == true && swordOn == true)
-					{
-						gameMessage = "<br>You take the <strong>" + item + "</strong>.";
-						backpack.push(item);
-						//remove item from game world
-						items.splice(itemIndexNumber, 1);
-						itemLocation.splice(itemIndexNumber, 1);
-						break;
-					}
-					else
-					{
-						gameMessage = "Probably need a sword and shield for this fight..."
-					}
-			break;
-		}
+		gameMessage = "<em>You take the <strong>" + item + "</strong></em>.";
+		//Add the item to the player's backpack 
+	    backpack.push(item);
+	   
+	    //Remove the item from the game world
+	    items.splice(itemIndexNumber, 1);
+	    itemLocation.splice(itemIndexNumber, 1);
 	}
 	else
 	{
-		gameMessage = "You can't do that.";
+	    //Message if you try and take an item
+	    //that isn't in the current location
+	    gameMessage = "You can't do that.";
 	}
-	console.log("var itemIndexNumber = items.indexOf(item): " + itemIndexNumber);
-	console.log("item: " + item);
+	
 }//end take item function
 function dropItem()
 {
@@ -268,8 +114,8 @@ function dropItem()
 		var backpackIndexNumber = backpack.indexOf(item);
 		if(backpackIndexNumber != -1)
 		{
-			gameMessage = "You drop the <strong> " + item + ".</strong>";
-			items.push(backpack[backpackIndexNumber, 1]);
+			gameMessage = "<em>You drop the <strong> " + item + ".</strong></em>";
+			items.push(backpack[backpackIndexNumber]);
 			itemLocation.push(mapLocation);
 			backpack.splice(backpackIndexNumber, 1);
 		}
@@ -305,9 +151,19 @@ function useItem()
 					{
 						if(backpack[i] == "wooden shield" || backpack[i] == "metal shield")
 						{
-							gameMessage = "You use your sword and board to best the black knight!"
+							gameMessage = "You use your sword and board to best the black knight!<br>";
+							gameMessage = "You've found the key to kingdom! well done!";
+						}
+						else
+						{
+							gameMessage = "Without a shield this will not end well...";
 						}
 					}
+				}
+				else
+				{
+					gameMessage = "You flail and slice wildly through the air.."
+					gameMessage +="damn mosquitos!";
 				}
 			break;
 			case "wooden shield":
@@ -317,12 +173,34 @@ function useItem()
 						{
 							if(backpack[i] == "short sword" || backpack[i] == "long sword")
 							{
-								gameMessage = "You use your sword and board to best the black knight!"
+								gameMessage = "You use your sword and board to best the black knight!";
+								gameMessage = "You've found the key to kingdom! well done!";
+							}
+							else
+							{
+								gameMessage = "Sadly, evil knight slaying requires more than just a shield..";
 							}
 						}
 					}
+					else
+					{
+						gameMessage = "You take a defensive pose..";
+						gameMessage = "the local wildlife is very impressed";
+					}
 			break;
 			case "rope":
+						if(mapLocation === 1)
+						{
+							gameMessage = "You use the rope to lower yourself into the pit...";
+							gameMessage = "and find a fine <strong>wooden shield</strong>!";
+							items.push("wooden shield");
+							//remove item from game world
+							itemLocation.push(mapLocation);
+						}
+						else
+						{
+							gameMessage = "You fiddle with various knots to fill the time.";
+						}
 			break;
 			case "jar":
 				for(var i = 0; i<backpack.length; i++)
@@ -330,6 +208,10 @@ function useItem()
 								if(backpack[i] == "firefly")
 								{
 									gameMessage = "You combine your jar and firefly to create a glowing lantern!";
+								}
+								else
+								{
+									gameMessage = "You stare at the empty jar..a metaphor for your life perhaps?";
 								}
 							}
 			break;
@@ -340,6 +222,10 @@ function useItem()
 								{
 									gameMessage = "You combine your jar and firefly to create a glowing lantern!";
 								}
+								else
+								{
+									gameMessage = "You wonder at the life of the firefly..";
+								}
 							}
 			break;
 			case "long sword":
@@ -349,9 +235,19 @@ function useItem()
 					{
 						if(backpack[i] == "wooden shield" || backpack[i] == "metal shield")
 						{
-							gameMessage = "You use your sword and board to best the black knight!"
+							gameMessage = "You use your sword and board to best the black knight!<br>";
+							gameMessage = "You've found the key to kingdom! well done!";
+						}
+						else
+						{
+							gameMessage = "Without a shield this will not end well...";
 						}
 					}
+				}
+				else
+				{
+					gameMessage = "You flail and slice wildly through the air.."
+					gameMessage +="damn mosquitos!";
 				}
 			break;
 			case "metal shield":
@@ -361,25 +257,42 @@ function useItem()
 						{
 							if(backpack[i] == "short sword" || backpack[i] == "long sword")
 							{
-								gameMessage = "You use your sword and board to best the black knight!"
+								gameMessage = "You use your sword and board to best the black knight!";
+								gameMessage = "You've found the key to kingdom! well done!";
+							}
+							else
+							{
+								gameMessage = "Sadly, evil knight slaying requires more than just a shield..";
 							}
 						}
+					}
+					else
+					{
+						gameMessage = "You take a defensive pose..";
+						gameMessage = "the local wildlife is very impressed";
 					}
 			break;
 			case "shovel":
 				if(mapLocation === 0)
 				{
-					gameMessage += "<br>You use the shovel to unearth the grave."
+					gameMessage = "You use the shovel to unearth the grave."
+					gameMessage += "..and find a stout <strong>short sword</strong>!";
+					items.push("short sword");
+					//remove item from game world
+					itemLocation.push(mapLocation);
 				}
 				else
 				{
-					gameMessage = "You can't use that here.";
+					gameMessage = "You dig a random hole..maybe you were a dog in a past life.";
 				}
 			break;
 			case "flute":
 				if(mapLocation === 17)
 				{
-					gameMessage += "<br>You serenade the wolf with beautiful music";
+					gameMessage = "You serenade the wolf with beautiful music";
+					gameMessage += "...and the wolf presents to you a <strong>metal shield</strong>!";
+					items.push("metal shield");
+					itemLocation.push(mapLocation);
 				}
 				else
 				{
@@ -393,18 +306,9 @@ function useItem()
 }
 function playGame(){
 	playerInput = input.value;
-	playerInput.toLowerCase();
+	playerInput = playerInput.toLowerCase();
 	gameMessage = "";
 	actionTaken = "";
-	//find item action
-	for(i = 0; i < knownItems.length; i++)
-	{
-		if(playerInput.indexOf(knownItems[i]) !== -1)
-		{
-			item = knownItems[i];
-			console.log("player's item: " + item);
-		}
-	}
 	//find player action
 	for(i = 0; i < knownActions.length; i++)
 	{
@@ -414,7 +318,15 @@ function playGame(){
 			break;
 		}
 	}
-	
+	//find item action
+	for(i = 0; i < knownItems.length; i++)
+	{
+		if(playerInput.indexOf(knownItems[i]) !== -1)
+		{
+			item = knownItems[i];
+			console.log("player's item: " + item);
+		}
+	}
 	switch(actionTaken)
 	{
 		case "north":
@@ -478,24 +390,22 @@ function render()
 	input.value = "";
 	input.placeholder = "type your action here";
 	//displays location and image
-	location.innerHTML = mapLocation + ": " + map[mapLocation];
+	location.innerHTML = map[mapLocation];
 	imgDisplay.src = "src/images/"+images[mapLocation]+".jpg";
 	//display items
 	for(var i = 0; i < items.length; i++)
 	{
 		if(mapLocation === itemLocation[i])
 		{
-			output.innerHTML += "<br>You see a(n) <strong>"+items[i]+"</strong> here.<br>";
+			output.innerHTML += "You see a(n) <strong>"+items[i]+"</strong> here.";
 		}
 	}
-
 	//game message
-	output.innerHTML += gameMessage 
+	output.innerHTML += "<br><em>" + gameMessage + "</em>";
 	if(backpack.length !==0)
 	{
 		output.innerHTML += "<br>You are carrying: <strong>" + backpack.join(", ") + "</strong>";
 	}
-	
 }
 
 
