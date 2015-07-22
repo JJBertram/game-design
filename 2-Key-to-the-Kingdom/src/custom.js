@@ -105,6 +105,8 @@ var knownActions = ["north", "east", "south", "west", "take",
 var knownItems = ["short sword", "wooden shield", "rope", "jar", "firefly", "long sword", "metal shield", "shovel", "flute", "key"];
 var actionTaken = "";
 var item = "";
+var mapX = 100;
+var mapY = 100;
 function clickHandler()
 {
 	playGame();
@@ -362,6 +364,8 @@ function playGame(){
 			if(mapLocation >= 5)
 			{
 				mapLocation -= 5;
+				mapX -= 50;
+				xMap.style.top = mapX + "px";
 			}
 			else
 			{
@@ -372,6 +376,8 @@ function playGame(){
 			if(mapLocation %5 != 4)
 			{
 				mapLocation += 1;
+				mapY += 50;
+				xMap.style.left = mapY + "px";
 			}
 			else
 			{
@@ -382,6 +388,8 @@ function playGame(){
 			if(mapLocation <= 19)
 			{
 				mapLocation += 5;
+				mapX += 50;
+				xMap.style.top = mapX + "px";
 			}
 			else
 			{
@@ -392,6 +400,8 @@ function playGame(){
 			if(mapLocation % 5 != 0)
 			{
 				mapLocation -= 1;
+				mapY -= 50;
+				xMap.style.left = mapY + "px";
 			}
 			else
 			{
