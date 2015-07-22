@@ -31,6 +31,13 @@
     .greyBG{
       background-color: #333;
     }
+    #map
+    {
+      background-image:url(src/images/map.png);
+      width:250px;
+      height:250px;
+      margin: 0 auto;
+    }
   </style>
 </head>
 <body>
@@ -64,7 +71,7 @@
           <h1>Key to the Kingdom</h1>
       </div><!-- End Page Header -->
         <div class="row">
-          <div class="col-sm-6 col-sm-offset-3">
+          <div class="col-sm-6 col-sm-offset-1">
             <div class="panel panel-default greyBG">
               <!-- game location output -->
                <h3 id = "location" style = "color:white;"></h3>
@@ -77,6 +84,19 @@
                 <!-- submit button -->
                 <button id = "enter" class = "btn btn-primary" style = "border-radius:4px;">enter</button>
               </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="panel panel-default greyBG">
+
+               <h3 style = "color:white;">Map</h3>
+              <div class="panel-body greyBG">
+                <div id = "map">
+                  <img id = "imgDisplay" class = "img-responsive img-rounded" src = "src/images/X.png">
+                </div>
+              </div>
+            </div>
+          </div>
             </div>
           </div>
           <!-- game messages -->

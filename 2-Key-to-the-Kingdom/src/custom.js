@@ -90,6 +90,7 @@ var output = document.querySelector("#output");
 var input = document.querySelector("#input");
 var location = document.querySelector("#location");
 var button = document.querySelector("#enter");
+var xMap = document.querySelector("#xMap");
 location.innerHTML = map[mapLocation];
 button.addEventListener("click", clickHandler, false);
 window.addEventListener("keydown", keydownHandler, false);
@@ -99,7 +100,8 @@ var gameMessage = "";
 var items = ["rope", "jar", "firefly", "shovel", "flute"];
 var itemLocation = [3, 6, 10, 20, 22];
 var backpack = [];
-var knownActions = ["north", "east", "south", "west", "take", "use", "drop", "help"];
+var knownActions = ["north", "east", "south", "west", "take",
+	 "use", "drop", "help", "talk"];
 var knownItems = ["short sword", "wooden shield", "rope", "jar", "firefly", "long sword", "metal shield", "shovel", "flute", "key"];
 var actionTaken = "";
 var item = "";
@@ -172,7 +174,7 @@ function useItem()
 		switch(item)
 		{
 			case "short sword":
-				if(location === 24)
+				if(mapLocation === 24)
 				{
 					for(var i = 0; i<backpack.length; i++)
 					{
@@ -194,7 +196,7 @@ function useItem()
 				}
 			break;
 			case "wooden shield":
-				if(location === 24)
+				if(mapLocation === 24)
 					{
 						for(var i = 0; i<backpack.length; i++)
 						{
@@ -256,7 +258,7 @@ function useItem()
 							}
 			break;
 			case "long sword":
-				if(location === 24)
+				if(mapLocation === 24)
 				{
 					for(var i = 0; i<backpack.length; i++)
 					{
@@ -278,7 +280,7 @@ function useItem()
 				}
 			break;
 			case "metal shield":
-				if(location === 24)
+				if(mapLocation === 24)
 					{
 						for(var i = 0; i<backpack.length; i++)
 						{
@@ -412,7 +414,18 @@ function playGame(){
 			}
 			gameMessage += "<br>Try any of these words: ";
 			gameMessage += "north, east, south, west ";
-			gameMessage += "take, use, drop";
+			gameMessage += "take, use, drop, talk";
+			break;
+		case "talk":
+			if(mapLocation === 2)
+			{
+				gameMessage = "The old hermit mentions he saw a mysterious knight";
+				gameMessage += " clad in black to the South East";
+			}
+			else
+			{
+				gameMessage = "You talk to yourself, maybe you've been on the trail too long..";
+			}
 			break;
 		default:
 			gameMessage = "I don't understand that."
