@@ -432,6 +432,20 @@ function playGame(){
 				gameMessage = "The old hermit mentions he saw a mysterious knight";
 				gameMessage += " clad in black to the South East";
 			}
+			else if (mapLocation === 19)
+			{
+				var hasWeapon = ((backpack.indexOf("short sword") > -1) || (backpack.indexOf("long sword") > -1));
+				console.log(hasWeapon);
+				if(hasWeapon === false)
+				{
+					gameMessage = " Hah! You don't scare me, piss off before I decide to care.";
+				}
+				else
+				{
+					gameMessage = "Put away ye sword! I submit!";
+					gameMessage += "..I saw a nasty looking fella to the South..might want a sword and shield though...";
+				}
+			}
 			else
 			{
 				gameMessage = "You talk to yourself, maybe you've been on the trail too long..";
@@ -461,7 +475,7 @@ function render()
 		}
 	}
 	//game message
-	output.innerHTML += "<br><em>" + gameMessage + "</em>";
+	output.innerHTML += "<em>" + gameMessage + "</em><br>";
 	if(backpack.length !==0)
 	{
 		output.innerHTML += "<br>You are carrying: <strong>" + backpack.join(", ") + "</strong>";
