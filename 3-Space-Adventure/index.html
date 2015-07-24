@@ -12,6 +12,15 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" type="text/css" href="src/custom.css">
+	<style>
+		body
+		{
+			background-image:url(src/images/bg.jpg);
+			background-repeat: no-repeat;
+			background-size: 100% auto;
+		}
+
+	</style>
 	</head>
 <body>
 	 <!-- Navbar -->
@@ -27,14 +36,39 @@
   				<a href="http://jjbertram.github.io/game-design/" class="navbar-brand" style ="color: #eb9316;">James Bertram </a>
   			</div><!-- Navbar Header-->
   			<div title = "jamesjeremyb@gmail.com" class="collapse navbar-collapse" id="navbar-collapse">
-        <a href="mailto:jamesjeremyb@gmail.com" class="btn btn-warning navbar-btn navbar-right">Contact Me</a>
-          <ul class="nav navbar-nav">
-            <li><a href="http://jjbertram.github.io/game-design/1-Alien-Attack/index.html" target="_blank">Alien Attack</a></li>
-            <li><a href="http://jjbertram.github.io/game-design/2-Key-to-the-Kingdom/index.html">Key to the Kingdom</a></li>
-            <li><a href="http://jjbertram.github.io/game-design/3-Space-Adventure/index.html">Space Adventure</a></li>
-            <li><a href="#faq">x</a> 
-            <li><a href="#contact">x</a> 
-          </ul>
-  		</div>
-    </div><!-- End Container-->
+        		<a href="mailto:jamesjeremyb@gmail.com" class="btn btn-warning navbar-btn navbar-right">Contact Me</a>
+          		<ul class="nav navbar-nav">
+		            <li><a href="http://jjbertram.github.io/game-design/1-Alien-Attack/index.html" target="_blank">Alien Attack</a></li>
+		            <li><a href="http://jjbertram.github.io/game-design/2-Key-to-the-Kingdom/index.html">Key to the Kingdom</a></li>
+		            <li><a href="http://jjbertram.github.io/game-design/3-Space-Adventure/index.html">Space Adventure</a></li>
+		            <li><a href="#faq">x</a> 
+		            <li><a href="#contact">x</a> 
+          		</ul>
+  			</div>
+    	</div><!-- End Container-->
   	</nav><!-- End navbar -->
+  	<div class = "container text-center" style = "padding: 30px;">
+	    <section>
+		    <div class="page-header" id="features">
+		          <h1>Space Adventure</h1>
+		    </div><!-- End Page Header -->
+		    <div class="row">
+		       	<div class="col-sm-6 col-sm-offset-3">
+		       		<div class="panel panel-default greyBG">
+		              <!-- game location output -->
+		            	<h3 id = "location" style = "color:white;"></h3>
+		            	<div class="panel-body greyBG">
+		            	</div>
+		              	<div style = "padding: 10px;">
+		              	</div>
+		            </div>
+		        </div>
+	        </div><!-- end row -->
+	    </section>
+  </div><!-- End Container -->
+    <!-- js -->
+	<script src="src/space.js"></script>
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+</html>
