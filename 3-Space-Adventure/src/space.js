@@ -132,7 +132,10 @@ function keydownHandler(event)
 	switch(map[shipRow][shipCol])
 	{
 		case SPACE:
-			gameMessage = "You drift through silent space.";
+			gameMessage = "You drift through silent space."
+			+ "<br><span style= \"float:left; color: red;\">fuel lost: "
+			+"</span><span id = \"youLose\">-" 
+			+ 1 + " </span></strong>";
 			break;
 		case PIRATE:
 			gameMessage = "You've encountered space pirates! ayyyyy!!";
