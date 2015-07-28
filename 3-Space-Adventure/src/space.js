@@ -258,7 +258,7 @@ function fight()
 		+ creditsLost + " </span></strong><br>"
 		+ "<span style= \"float:left; color: red;\">fuel lost: </span><span id = \"youLose\">-" 
 		+ 1 + " </span></strong><br>"
-		+ "experience gained: <span id = \"youWin\">+" + 1
+		+ "<span id = \"youWin\" style= \"float:left;\">experience gained: </span><span id = \"youWin\">+" + 1
 		+ "</span><br>Your ship's strength: <span>" 
 		+ shipStrength + "</span><br>The pirate's strength: <span>" 
 		+ pirateStrength + "</span>";
@@ -269,9 +269,9 @@ function fight()
 		creditAmount += pirateCredits;
 		xpAmount += 2;
 		gameMessage += "<br>You fight and <strong><em>WIN.</em></strong><br>"
-		+"<span style= \"float:left;\">credits gained: </span><span id = \"youWin\">+" 
+		+"<span id = \"youWin\" style= \"float:left;\">credits gained: </span><span id = \"youWin\">+" 
 		+ pirateCredits + " </span></strong><br>"
-		+ "experience gained: <span id = \"youWin\">+" + 2
+		+ "<span id = \"youWin\" style= \"float:left;\">experience gained: </span><span id = \"youWin\">+" + 2
 		+ "</span><br>Your ship's strength: <span>" + shipStrength 
 		+ "</span><br>pirate's strength: <span>" + pirateStrength + "</span>";
 	}
@@ -288,9 +288,9 @@ function trade()
 				foodAmount += cost;
 				xpAmount += 2;
 				gameMessage += " Nice trade! You've gained food and experience.<br>"
-				+ "<span style= \"float:left;\">food gained: </span><span id = \"youWin\">+" 
+				+ "<span id = \"youWin\" style= \"float:left;\">food gained: </span><span id = \"youWin\">+" 
 				+ cost + " </span><br>" 
-				+ "experience gained: <span id = \"youWin\">+" + 2 + "</span>";
+				+ "<span id = \"youWin\" style= \"float:left;\">experience gained: </span><span id = \"youWin\">+" + 2 + "</span>";
 				break;
 			case PLANET_RED:
 				fight();
@@ -299,26 +299,26 @@ function trade()
 				foodAmount += cost;
 				xpAmount += 2;
 				gameMessage += " Nice trade! You've gained food and experience.<br>"
-				+ "<span style= \"float:left;\">food gained: </span><span id = \"youWin\">+" 
+				+ "<span id = \"youWin\" style= \"float:left;\">food gained: </span><span id = \"youWin\">+" 
 				+ cost + " </span><br>" 
-				+ "experience gained: <span id = \"youWin\">+" + 2 + "</span>";
+				+ "<span id = \"youWin\" style= \"float:left;\">experience gained: </span><span id = \"youWin\">+" + 2 + "</span>";
 				break;
 			case PLANET_BROWN:
 				fuelAmount += cost;
 				xpAmount += 2;
 				gameMessage += " Nice trade! You've gained fuel and experience.<br>"
-				+ "<span style= \"float:left;\">fuel gained: </span><span id = \"youWin\">+" 
+				+ "<span id = \"youWin\" style= \"float:left;\">fuel gained: </span><span id = \"youWin\">+" 
 				+ cost + " </span><br>" 
-				+ "experience gained: <span id = \"youWin\">+" + 2 + "</span>";
+				+ "<span id = \"youWin\" style= \"float:left;\">experience gained: </span><span id = \"youWin\">+" + 2 + "</span>";
 				break;
 			case STATION:
 				console.log("cost: " + cost);
 				fuelAmount += cost;
 				xpAmount += 1;
 				gameMessage += " Nice trade! You've gained fuel and experience.<br>"
-				+ "<span style= \"float:left;\">fuel gained: </span><span id = \"youWin\">+" 
+				+ "<span id = \"youWin\" style= \"float:left;\">fuel gained: </span><span id = \"youWin\">+" 
 				+ cost + " </span><br>" 
-				+ "experience gained: <span id = \"youWin\">+" + 1 + "</span>";
+				+ "<span id = \"youWin\" style= \"float:left;\">experience gained: </span><span id = \"youWin\">+" + 1 + "</span>";
 				break;
 		} //end trade switch
 	} //end if
