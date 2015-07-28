@@ -13,17 +13,17 @@ window.addEventListener("keydown", keydownHandler, false);
 var map =
 [
 	[2, 0, 0, 1, 0, 7],
-	[0, 6, 0, 0, 1, 0],
-	[1, 0, 0, 5, 0, 1],
-	[0, 3, 0, 1, 0, 0],
-	[0, 0, 0, 0, 0, 0],
-	[8, 0, 6, 0, 0, 4],
+	[0, 0, 6, 0, 0, 0],
+	[3, 0, 0, 0, 0, 0],
+	[0, 1, 0, 5, 0, 1],
+	[0, 0, 0, 1, 0, 0],
+	[8, 6, 0, 0, 0, 4],
 ];
 //game objects array - things that move
 var gameObjects =
 [
 	[0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 9, 0],
 	[0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0],
@@ -39,6 +39,7 @@ var PLANET_GREEN = 5;
 var STATION = 6;
 var VORTEX = 7; //destination
 var SHIP = 8; //player
+var CTHULHU = 9; //wandering monster
 //cell size
 var SIZE = 64;
 var ROWS = map.length;
@@ -46,6 +47,9 @@ var COLUMNS = map[0].length;
 //player ship loc
 var shipRow;
 var shipCol;
+//monster loc
+var monsterRow;
+var monsterCol;
 //keydown values
 var UP = 38;
 var DOWN = 40;
@@ -76,6 +80,11 @@ for(var row = 0; row < ROWS; row++)
       shipRow = row;
       shipCol = col;
     }
+    else if(gameObjects[row][col] === CTHULHU)
+    {
+    	monsterRow = row;
+    	monsterCol = col;
+    }
   }
 }
 
@@ -99,6 +108,7 @@ function keydownHandler(event)
 				gameObjects[shipRow][shipCol] = 0;
 				shipRow ++;
 				gameObjects[shipRow][shipCol] = SHIP;
+				console.log("down: " + DOWN);
 			}
 			break;
 		case LEFT:
@@ -118,6 +128,7 @@ function keydownHandler(event)
 			}
 			break;
 	} //end keydown switch
+	moveMonster();
 	switch(map[shipRow][shipCol])
 	{
 		case SPACE:
@@ -149,17 +160,89 @@ function keydownHandler(event)
 			break;
 		case VORTEX:
 			gameMessage = "You've made it to the vortex!";
-			endGame();
+			//endGame();
 			break;
-	}//end location info switch
+	}//end switch
 	//update ships supplies
 	fuelAmount--;
 	foodAmount--;
-	if(fuelAmount <= 0 || foodAmount <= 0)
+	if((fuelAmount <= 0 || foodAmount <= 0) || (map[shipRow][shipCol] === VORTEX) || (gameObjects[shipRow][shipCol] === CTHULHU))
 	{
 		endGame();
 	}
+	render();
 }
+function moveMonster()
+{
+	var UP = 1;
+	var DOWN = 2;
+	var LEFT = 3;
+	var RIGHT = 4;
+	var possibleDirection = [];
+	var direction = undefined;
+	if(monsterRow > 0)
+	{
+		var thingAbove = map[monsterRow - 1][monsterCol];
+		if(thingAbove === SPACE)
+		{
+			possibleDirection.push(UP);
+		}
+	}
+	if(monsterRow < ROWS -1)
+	{
+		var thingBelow = map[monsterRow + 1][monsterCol];
+		if(thingBelow === SPACE)
+		{
+			possibleDirection.push(DOWN);
+		}
+	}
+	if(monsterCol > 0)
+	{
+		var thingLeft = map[monsterRow][monsterCol - 1];
+		if(thingLeft === SPACE)
+		{
+			possibleDirection.push(LEFT);
+		}
+	}
+	if(monsterCol < COLUMNS - 1)
+	{
+		var thingRight = map[monsterRow][monsterCol + 1];
+		if(thingRight === SPACE)
+		{
+			possibleDirection.push(RIGHT);
+		}
+	}
+	if(possibleDirection.length !== 0)
+	{
+		var randomNum = Math.floor(Math.random() * possibleDirection.length);
+		direction = possibleDirection[randomNum];
+		switch(direction)
+		{
+			case UP:
+				gameObjects[monsterRow][monsterCol] = 0;
+				monsterRow--;
+				gameObjects[monsterRow][monsterCol] = CTHULHU;
+				break;
+			case DOWN:
+				gameObjects[monsterRow][monsterCol] = 0;
+				monsterRow++;
+				gameObjects[monsterRow][monsterCol] = CTHULHU;
+				break
+			case LEFT:
+				gameObjects[monsterRow][monsterCol] = 0;
+				monsterCol--;
+				gameObjects[monsterRow][monsterCol] = CTHULHU;
+				break
+			case RIGHT:
+				gameObjects[monsterRow][monsterCol] = 0;
+				monsterCol++;
+				gameObjects[monsterRow][monsterCol] = CTHULHU;
+				break;
+		}//end switch
+	}//end if
+		
+
+}//end monsterMove func
 function fight()
 {
 	var shipStrength = Math.ceil((foodAmount+creditAmount)/2); 
@@ -168,13 +251,17 @@ function fight()
 	{
 		var creditsLost = Math.round(pirateStrength/2);
 		creditAmount -= creditsLost;
+		fuelAmount--;
 		xpAmount += 1;
 		gameMessage += "<br>You fight and <strong><em>LOSE.</em></strong><br>"
 		+ "<span style= \"float:left; color: red;\">credits lost: </span><span id = \"youLose\">-" 
 		+ creditsLost + " </span></strong><br>"
+		+ "<span style= \"float:left; color: red;\">fuel lost: </span><span id = \"youLose\">-" 
+		+ 1 + " </span></strong><br>"
 		+ "experience gained: <span id = \"youWin\">+" + 1
 		+ "</span><br>Your ship's strength: <span>" 
-		+ shipStrength + "</span><br>The pirate's strength: <span>" + pirateStrength + "</span>";
+		+ shipStrength + "</span><br>The pirate's strength: <span>" 
+		+ pirateStrength + "</span>";
 	}
 	else
 	{
@@ -186,7 +273,7 @@ function fight()
 		+ pirateCredits + " </span></strong><br>"
 		+ "experience gained: <span id = \"youWin\">+" + 2
 		+ "</span><br>Your ship's strength: <span>" + shipStrength 
-		+ "</span><br>pirate's strength: <span>" + pirateStrength +"</span>";
+		+ "</span><br>pirate's strength: <span>" + pirateStrength + "</span>";
 	}
 }//end fight function
 function trade()
@@ -247,30 +334,31 @@ function endGame()
 	if(map[shipRow][shipCol] === VORTEX)
 	{
 		var score = creditAmount+foodAmount+xpAmount+fuelAmount;
-		gameMessage += "<br>Dear god man you've done it!"
-		+ "<br><h2>Final Score: <span>" + score + "</span></h2>";		
+		gameMessage += " Dear god man you've done it!"
+		+ "<br><h2 class = \"text-center\">Final Score: <strong style = \"color: #ff57c5;\">" 
+		+ score + "</strong></h2>";		
+	}
+	else if (gameObjects[shipRow][shipCol] === CTHULHU)
+	{
+		gameMessage = "A powerful CTHULHU devours all life and energy within your ship. "
+			+ "Probably should have avoided such a beast!"
+			+ "<br><h2 style = \"color:red; text-align: center;\">You Lose</h2>";
+	}
+	else if(fuelAmount <= 0)
+	{
+		gameMessage = "No..More..Fuel..The crew sit in silence, throwing nervous glances between themselves. "
+		+ "It won't be long now before hunger and desperation consume the last of you."
+		+ "<br><h2 style = \"color:red; text-align: center;\">You Lose</h2>";
 	}
 	else
 	{
-		if(fuelAmount <= 0)
-		{
-			gameMessage = "No..More..Fuel..The crew sit in silence, throwing nervous glances between themselves. "
-			+ "It won't be long now before hunger and desperation consume the last of you."
-			+ "<br><span id = \"youLose\">You Lose</span>";
-		}
-		else if(foodAmount <= 0)
-		{
-			gameMessage = "No..More..Food..With no fuel, what little crew left alive is too weak to seek help.."
-			+"your ship drifts forever into the void."
-			+ "<br><span id = \"youLose\">You Lose</span>";
-		}
-		else
-		{
-			gameMessage = "because aliens";
-		}
+		gameMessage = "No..More..Food..With no food, what little crew left alive is too weak to seek help.."
+		+"your ship drifts forever into the void."
+		+ "<br><h2 style = \"color:red; text-align: center;\">You Lose</h2>";
 	}//end if
 	window.removeEventListener("keydown", keydownHandler, false);
 }// end endGame func
+
 function render()
 {
 	//look for old child divs and remove
@@ -294,7 +382,7 @@ function render()
 			switch(map[row][col])
 			{
 				case SPACE:
-					cell.src=("src/images/open-space.png");
+					cell.src="src/images/open-space.png";
 					break;
 				case PIRATE:
 					cell.src=("src/images/pirateship.png");
@@ -311,7 +399,6 @@ function render()
 				case PLANET_BROWN:
 					cell.src=("src/images/planet-brown.png");
 					break;
-					
 				case STATION:
 					cell.src=("src/images/spacestation.png");
 					break;
@@ -322,7 +409,10 @@ function render()
 			switch(gameObjects[row][col])
 			{
 				case SHIP:
-					cell.src=("src/images/ship.png");
+					cell.src = "src/images/ship.png";
+					break;
+				case CTHULHU:
+					cell.src = "src/images/monster.png";
 					break;
 			}
 			//position image cell
