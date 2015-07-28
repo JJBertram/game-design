@@ -7,6 +7,27 @@ body
 	-webkit-font-smoothing: antialiased;
 	font-family: "Audiowide";
 }
+h1
+{
+	background-color:#000;
+	border: 2px solid #23d0e6;
+	border-radius: 10px;
+	color: #ff57c5;
+	font-size: 45px;
+
+}
+span
+{
+	color:#ff57c5;
+}
+#youLose
+{
+	color:red;
+}
+#youWin
+{
+	color:#0d0288;
+}
 #stage
 {
 	position: relative;
@@ -14,6 +35,44 @@ body
 	height: 384px;
 	background-image: url("images/space-bg.jpg");
 	margin:0 auto;
+	position:relative;
+	top:50%;
+	margin-bottom:20px;
+  	transform: translateY(-50%);
+  	-webkit-transform: translateY(-50%);
+  	-ms-transform: translateY(-50%);
+
+}
+#stage-wrapper
+{
+	width:414px;
+	height:414px;
+	background-color: #000;
+	border: 2px solid #23d0e6;
+	border-radius: 10px;
+}
+#status
+{
+	width:250px;
+	min-height:384px;
+	background-color:#000;
+	border: 2px solid #23d0e6;
+	border-radius: 10px;
+	color: #ff57c5;
+	text-align:left;
+	margin: 0 auto;
+}
+#status p
+{
+	padding: 10px;
+}
+#status hr
+{
+	border-top: 2px solid #0d0288;
+}
+#status span
+{
+	float: right;
 }
 .game-cell
 {
@@ -21,4 +80,12 @@ body
 	position:absolute;
 	width:64px;
 	height:64px;
+}
+#output
+{
+	color: #47e03c;
+}
+#features
+{
+	border-bottom:none;
 }

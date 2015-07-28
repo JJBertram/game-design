@@ -39,11 +39,19 @@
   	</nav><!-- End navbar -->
   	<div class = "container text-center" style = "padding: 30px;">
 		    <div class="page-header" id="features">
-		          <h1 style = "font-size: 45px; color:darkkhaki;">Space Adventure</h1>
+		          <h1 >Space Adventure</h1>
 		    </div><!-- End Page Header -->
 		    <div class="row">
-		       	<div class="col-sm-6 col-sm-offset-3">
-		            <div id ="stage"></div>
+		       	<div class="col-sm-6 col-sm-offset-1">
+		       		<div id = "stage-wrapper">
+		            <div id ="stage"></div></div>
+		        </div>
+		        <div class="col-sm-4" id = "status">
+		            <p> Fuel: <span id = "fuel"></span></p>
+		            <p> Credits: <span id = "credits"></span></p>
+		            <p> Food: <span id = "grub"></span></p>
+		            <p> Experience: <span id = "xp"></span></p>
+		            <hr>
 		            <div id = "output"></div>
 		        </div>
 	        </div><!-- end row -->
