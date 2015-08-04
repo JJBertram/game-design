@@ -20,6 +20,23 @@ span
 {
 	color:#ff57c5;
 }
+canvas
+{
+  display: block;
+  position: absolute;
+  width: 128px;
+  height: 128px;
+  
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+	
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	
+	cursor: pointer;	
+}
 #youLose
 {
 	color:red;
@@ -31,16 +48,8 @@ span
 #stage
 {
 	position: relative;
-	width: 384px;
-	height: 384px;
-	background-image: url("images/space-bg.jpg");
-	margin:0 auto;
-	position:relative;
-	top:50%;
-	margin-bottom:20px;
-  	transform: translateY(-50%);
-  	-webkit-transform: translateY(-50%);
-  	-ms-transform: translateY(-50%);
+	width: 552px;
+	height: 414px;
 
 }
 #stage-wrapper
